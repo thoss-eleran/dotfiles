@@ -1,13 +1,23 @@
 "Vim settings file called from .vimrc
 "
+"This version is copied up from my laptop and may have some tweaks needed for usability
+"
 let g:user_settings="Tom"
 
 set nocompatible
 
 "Plugin settings
+"These are settings for various plugins I use
+
+"This enables the tabline in airline
 let g:airline#extensions#tabline#enabled = 1
+
 let g:airline_powerline_fonts=1
+
+"Settings for twitvim
 let twitvim_force_ssl = 1
+
+"Enable vim calendar plugin to connect to google calendar...
 let g:calendar_google_calendar = 1
 
 "Vim settings
@@ -49,8 +59,17 @@ set cmdheight=3
 set t_Co=256
 set background=dark
 colo badwolf
-hi normal ctermbg=none
+
+"Modify badwolf theme for transparent bg terminal...
+hi Comment ctermbg=144
+hi Normal ctermbg=none
 hi NonText ctermbg=none
+
+if has("gui_running")
+  "italicize comments for readability
+  hi Comment cterm=italic 
+endif
+
 
 set foldenable
 set foldmethod=syntax
@@ -58,9 +77,5 @@ set foldlevel=0
 "set foldopen=block,hor,mark,percent,quickfix,tag
 
 
-
-if has("gui_running")
-  colorscheme badwolf 
-endif
 
 
